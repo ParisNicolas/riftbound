@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2tlbwxrk2s5i"]
+[gd_scene load_steps=9 format=3 uid="uid://c2tlbwxrk2s5i"]
 
 [ext_resource type="Script" uid="uid://164mimyx18di" path="res://Scripts/Players/pug.gd" id="1_itoxq"]
 [ext_resource type="Texture2D" uid="uid://cneo7pu2vrbni" path="res://Assets/Sprites/animals.png" id="1_or1hk"]
@@ -35,6 +35,20 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_u571f"]
 radius = 7.07107
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_itoxq"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("AnimatedSprite2D:animation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath("Camera2D:position")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("AnimatedSprite2D:flip_h")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+
 [node name="Pug" type="CharacterBody2D"]
 script = ExtResource("1_itoxq")
 
@@ -51,3 +65,6 @@ shape = SubResource("CircleShape2D_u571f")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_itoxq")
