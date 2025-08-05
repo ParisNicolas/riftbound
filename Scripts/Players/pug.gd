@@ -9,6 +9,7 @@ func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
 	
 func _ready():
+	add_to_group("player")
 	if is_multiplayer_authority():
 		$Camera2D.make_current()
 
@@ -17,7 +18,15 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
+	#Empujar
+	var collision = move_and_collide(velocity * delta)
+	
+	if collision and collision.get_collider().is_in_group("enemy"):
+		var enemy = collision.get_collider()
+		var push_dir = global_position.direction_to(enemy.global_position)
+		enemy.apply_push(push_dir * 100)
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("saltar") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
