@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmingoc24kwmn"]
+[gd_scene load_steps=5 format=3 uid="uid://dmingoc24kwmn"]
 
 [ext_resource type="Script" uid="uid://cypmkxgj4bfoi" path="res://Scripts/UI/hud.gd" id="1_sprlj"]
+[ext_resource type="FontFile" uid="uid://mtu35pl36xwk" path="res://Assets/Fonts/Click Cheese.otf" id="2_ny26j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sprlj"]
 bg_color = Color(0.581564, 0.598122, 0.658603, 1)
@@ -19,17 +20,12 @@ corner_radius_bottom_left = 8
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_sprlj")
 
-[node name="HealthLabel" type="Label" parent="."]
-offset_left = 569.0
-offset_top = 37.0
-offset_right = 626.0
-offset_bottom = 60.0
-
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = 539.0
 offset_top = 10.0
 offset_right = 632.0
 offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("2_ny26j")
 theme_override_styles/background = SubResource("StyleBoxFlat_sprlj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ny26j")
 value = 100.0
@@ -43,18 +39,22 @@ offset_bottom = 40.0
 
 [node name="Reaparecer" type="Button" parent="DeathScreen"]
 layout_mode = 0
-offset_left = 265.0
-offset_top = 187.0
-offset_right = 362.0
-offset_bottom = 218.0
+offset_left = 242.0
+offset_top = 176.0
+offset_right = 383.0
+offset_bottom = 207.0
+theme_override_fonts/font = ExtResource("2_ny26j")
 text = "Reaparecer"
 
 [node name="Label" type="Label" parent="DeathScreen"]
 layout_mode = 0
-offset_left = 186.0
-offset_top = 93.0
-offset_right = 456.0
-offset_bottom = 169.0
+offset_left = 195.0
+offset_top = 94.0
+offset_right = 440.0
+offset_bottom = 170.0
+theme_override_colors/font_color = Color(0.436119, 0.668561, 0.648371, 1)
+theme_override_colors/font_shadow_color = Color(0.567179, 0.353354, 0.507404, 1)
+theme_override_fonts/font = ExtResource("2_ny26j")
 theme_override_font_sizes/font_size = 50
 text = "MORISTEE"
 

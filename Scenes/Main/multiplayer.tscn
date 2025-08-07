@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://clxa1711vjjsv"]
+[gd_scene load_steps=6 format=3 uid="uid://clxa1711vjjsv"]
 
 [ext_resource type="Script" uid="uid://b0f0wywr60hx0" path="res://Scripts/multiplayer.gd" id="1_rt0y2"]
 [ext_resource type="PackedScene" uid="uid://dmingoc24kwmn" path="res://Scenes/UI/hud.tscn" id="2_ipi6n"]
 [ext_resource type="PackedScene" uid="uid://mjwv0gqgjuh8" path="res://Scenes/Enemies/enemy.tscn" id="3_b8xr8"]
 [ext_resource type="PackedScene" uid="uid://bk2ggberd6okw" path="res://Scenes/Main/Escena_2.tscn" id="3_ipi6n"]
+[ext_resource type="FontFile" uid="uid://mtu35pl36xwk" path="res://Assets/Fonts/Click Cheese.otf" id="5_rxk6r"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_rt0y2")
@@ -28,10 +29,12 @@ layout_mode = 2
 
 [node name="Host" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_rxk6r")
 text = "Crear partida"
 
 [node name="Join" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_rxk6r")
 text = "Unirse"
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]

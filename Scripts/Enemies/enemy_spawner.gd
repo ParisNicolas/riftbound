@@ -15,6 +15,7 @@ func _ready():
 
 
 
+
 func _on_spawn_timer_timeout() -> void:
 	if spawned >= spawn_limit:
 		return

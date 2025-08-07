@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 func update_health(current: int, max: int) -> void:
-	$HealthLabel.text = str(current) + "/" + str(max)
 	$HealthBar.max_value = max
 	$HealthBar.value = current
 
