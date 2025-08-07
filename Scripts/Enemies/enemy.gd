@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED := 100
-@export var ATTACK_RANGE := 15
+@export var ATTACK_RANGE := 20
 @export var ATTACK_COOLDOWN := 1.0
 @export var GRAVITY := 800.0
 
@@ -46,15 +46,8 @@ func _physics_process(delta):
 		velocity.x = 0
 
 	# Animaciones
-	if attacking:
-		if $AnimatedSprite2D.animation != "attack":
-			$AnimatedSprite2D.play("attack")
-	elif abs(velocity.x) > 1:
-		if $AnimatedSprite2D.animation != "walk":
-			$AnimatedSprite2D.play("walk")
-	else:
-		if $AnimatedSprite2D.animation != "idle":
-			$AnimatedSprite2D.play("idle")
+	
+	$AnimatedSprite2D.play("idle")
 
 	move_and_slide()
 	
@@ -78,6 +71,9 @@ func find_closest_player():
 func attack():
 	can_attack = false
 	$AnimatedSprite2D.play("attack")
+	
+	target_player.take_damage(10)
+			
 	get_node("AttackCooldown").start()
 	print("¡Ataque!")
 

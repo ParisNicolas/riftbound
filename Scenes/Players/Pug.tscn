@@ -50,6 +50,7 @@ properties/3/spawn = true
 properties/3/replication_mode = 1
 
 [node name="Pug" type="CharacterBody2D"]
+collision_mask = 3
 script = ExtResource("1_itoxq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
