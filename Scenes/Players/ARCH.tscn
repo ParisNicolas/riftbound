@@ -1,13 +1,66 @@
-[gd_scene load_steps=7 format=3 uid="uid://clq7jqs7gbbbx"]
+[gd_scene load_steps=15 format=3 uid="uid://clq7jqs7gbbbx"]
 
 [ext_resource type="Script" uid="uid://d2ii4x45b3p6o" path="res://Scripts/Players/arch.gd" id="1_jbl03"]
-[ext_resource type="Texture2D" uid="uid://cdqnntoy36v4k" path="res://Assets/Sprites/Acheron.png" id="2_itoxq"]
+[ext_resource type="Texture2D" uid="uid://c10r0s5qf8utl" path="res://Assets/Sprites/AcheronIdle.png" id="2_jbl03"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_op7es"]
+atlas = ExtResource("2_jbl03")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax1ss"]
+atlas = ExtResource("2_jbl03")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54odm"]
+atlas = ExtResource("2_jbl03")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywxeh"]
+atlas = ExtResource("2_jbl03")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5rpe"]
+atlas = ExtResource("2_jbl03")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0t3at"]
+atlas = ExtResource("2_jbl03")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7vmn"]
+atlas = ExtResource("2_jbl03")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2s2t"]
+atlas = ExtResource("2_jbl03")
+region = Rect2(448, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g0wjw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_itoxq")
+"texture": SubResource("AtlasTexture_op7es")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax1ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54odm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywxeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5rpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0t3at")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7vmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2s2t")
 }],
 "loop": true,
 "name": &"idle",
@@ -44,6 +97,7 @@ position = Vector2(15, -18.5)
 scale = Vector2(0.46875, 0.578125)
 sprite_frames = SubResource("SpriteFrames_g0wjw")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(14, -15)

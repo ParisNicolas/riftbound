@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://budubyi2u2emc"
+path="res://.godot/imported/Fuguee KSR.wav-cc19ab07a6ba074c0d9a299d4bef6adb.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Fuguee KSR.wav"
+dest_files=["res://.godot/imported/Fuguee KSR.wav-cc19ab07a6ba074c0d9a299d4bef6adb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

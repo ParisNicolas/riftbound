@@ -8,7 +8,7 @@ var max_health := 100
 var current_health := 90
 var is_dead := false
 
-var attack_cooldown := 0.8
+var attack_cooldown := 0.4
 var can_attack := true
 
 
@@ -66,13 +66,14 @@ func take_damage(amount: int):
 
 func _process(delta):
 	$AttackArea/CollisionShape2D.position.x = 30 if !$AnimatedSprite2D.flip_h else -2
-	print($AttackArea/CollisionShape2D.position)
 
 func attack():
 	if !is_multiplayer_authority(): return
 	if !can_attack: return
 
 	can_attack = false
+	$AnimatedSprite2D.rotation = 0.6 if !$AnimatedSprite2D.flip_h else -0.6
+	
 
 	# MOSTRAR COLISIÓN (solo durante el ataque)
 	$AttackArea/CollisionShape2D.visible = true
@@ -85,6 +86,7 @@ func attack():
 	# Esperar cooldown
 	await get_tree().create_timer(attack_cooldown).timeout
 
+	$AnimatedSprite2D.rotation = 0 
 	can_attack = true
 	$AttackArea/CollisionShape2D.visible = false
 

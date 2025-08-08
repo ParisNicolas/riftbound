@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://ct3y5foowogt5"]
+
+[ext_resource type="Script" uid="uid://b30pu7qvdcxcj" path="res://Scripts/Enemies/enemy.gd" id="1_v2iln"]
+[ext_resource type="Texture2D" uid="uid://b3b1d7iotk0d5" path="res://Assets/Sprites/Enemies/reinaMadre-removebg-preview(1).png" id="2_v2iln"]
+[ext_resource type="Texture2D" uid="uid://dllx7jc0n17x8" path="res://Assets/Sprites/Enemies/reinaMadre_Attack.png" id="2_vtbby"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkxqw"]
+atlas = ExtResource("2_vtbby")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d134l"]
+atlas = ExtResource("2_vtbby")
+region = Rect2(0, 150, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtbby"]
+atlas = ExtResource("2_v2iln")
+region = Rect2(0, 0, 130, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv8mn"]
+atlas = ExtResource("2_v2iln")
+region = Rect2(130, 0, 130, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_53ao7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkxqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d134l")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtbby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv8mn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3hxf3"]
+radius = 6.0
+
+[node name="Reina" type="CharacterBody2D"]
+script = ExtResource("1_v2iln")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, -18)
+scale = Vector2(0.309791, 0.273129)
+sprite_frames = SubResource("SpriteFrames_53ao7")
+animation = &"attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -6)
+shape = SubResource("CircleShape2D_3hxf3")
