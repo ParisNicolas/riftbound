@@ -37,6 +37,11 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("5_rxk6r")
 text = "Unirse"
 
+[node name="IPInput" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "localhost"
+alignment = 1
+
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("uid://c2tlbwxrk2s5i")
 spawn_path = NodePath("..")

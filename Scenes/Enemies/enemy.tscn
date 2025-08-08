@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://mjwv0gqgjuh8"]
 
-[ext_resource type="Script" uid="uid://cui8xshu4nq4e" path="res://Scripts/Enemies/enemy.gd" id="1_ubio8"]
+[ext_resource type="Script" uid="uid://b30pu7qvdcxcj" path="res://Scripts/Enemies/enemy.gd" id="1_ubio8"]
 [ext_resource type="Texture2D" uid="uid://co3jyjiv0w8jd" path="res://Assets/Sprites/Enemies/negroCueva_cortando.png" id="2_miwey"]
 [ext_resource type="Texture2D" uid="uid://cf6jnje77g5u1" path="res://Assets/Sprites/Enemies/negroCueva_Estatico.png" id="3_l8da7"]
 [ext_resource type="Texture2D" uid="uid://csncg1ilnq7kj" path="res://Assets/Sprites/Enemies/negroCueva_corriendo(1).png" id="4_haj6g"]
@@ -73,7 +73,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3hxf3"]
-radius = 7.0
+radius = 5.0
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_ubio8")
@@ -86,5 +86,5 @@ animation = &"idle"
 frame_progress = 0.269879
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_3hxf3")

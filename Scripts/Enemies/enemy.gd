@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED := 100
+@export var SPEED := 80
 @export var ATTACK_RANGE := 20
 @export var ATTACK_COOLDOWN := 1.0
 @export var GRAVITY := 800.0
@@ -8,6 +8,10 @@ extends CharacterBody2D
 var target_player: Node2D = null
 var can_attack := true
 var attacking := false
+
+var max_health := 20
+var current_health := 20
+var is_dead := false
 
 func _ready():
 	add_to_group("enemy")
@@ -34,23 +38,34 @@ func _physics_process(delta):
 		# Flip aunque no se mueva
 		$AnimatedSprite2D.flip_h = dx < 0
 
-		if distance <= ATTACK_RANGE and height_distance <= 5 and can_attack:
-			attack()
-			velocity.x = 0
-			attacking = true
+		if distance <= ATTACK_RANGE:
+			if height_distance <= 10:
+				velocity.x = 0
+				if(can_attack):
+					attack()
+					attacking = true
+				$AnimatedSprite2D.play("attack")
+			else:
+				$AnimatedSprite2D.play("idle")
 		else:
 			# Perseguir horizontalmente
 			direction.x = sign(dx)
 			velocity.x = direction.x * SPEED
+			$AnimatedSprite2D.play("walk")
 	else:
 		velocity.x = 0
 
-	# Animaciones
-	
-	$AnimatedSprite2D.play("idle")
-
 	move_and_slide()
 	
+func take_damage(amount: int):
+	if is_dead:
+		return
+		
+	current_health = clamp(current_health - amount, 0, max_health)
+	
+	if current_health <= 0:
+		die()
+		
 func apply_push(push_vector: Vector2):
 	velocity += push_vector
 
@@ -79,3 +94,7 @@ func attack():
 
 func _on_attack_timeout():
 	can_attack = true
+	
+func die():
+	is_dead = true
+	queue_free()

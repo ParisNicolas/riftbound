@@ -14,12 +14,14 @@ func _on_host_pressed() -> void:
 	hud.hide()
 
 func _on_join_pressed() -> void:
-	peer.create_client("localhost", 3500)
+	var ip = $CenterContainer/VBoxContainer/IPInput.text.strip_edges()
+	var port = 3500
+	peer.create_client(ip, port)
 	multiplayer.multiplayer_peer = peer
 	hud.hide()
 
 func _on_peer_connected(id: int = 1):
-	var player_scene = load("res://Scenes/Players/Pug.tscn")
+	var player_scene = load("res://Scenes/Players/ARCH.tscn")
 	var player_instance = player_scene.instantiate()
 	player_instance.name = str(id)
 	add_child(player_instance, true)
