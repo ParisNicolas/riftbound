@@ -68,8 +68,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jbl03"]
-radius = 4.0
-height = 28.0
+radius = 3.0
+height = 24.0
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_itoxq"]
 properties/0/path = NodePath(".:position")
@@ -86,21 +86,21 @@ properties/3/spawn = true
 properties/3/replication_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbl03"]
-size = Vector2(20, 14)
+size = Vector2(30.5, 14)
 
 [node name="arch" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_jbl03")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(15, -18.5)
+position = Vector2(1, -16)
 scale = Vector2(0.46875, 0.578125)
 sprite_frames = SubResource("SpriteFrames_g0wjw")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14, -15)
+position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_jbl03")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -113,5 +113,5 @@ replication_config = SubResource("SceneReplicationConfig_itoxq")
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(31, -10)
+position = Vector2(17.75, -7)
 shape = SubResource("RectangleShape2D_jbl03")

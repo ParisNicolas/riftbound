@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bk2ggberd6okw"]
+[gd_scene load_steps=14 format=4 uid="uid://bk2ggberd6okw"]
 
 [ext_resource type="Texture2D" uid="uid://csdmdwffxs1ew" path="res://Assets/Sprites/Tiles/Purple.png" id="1_d4mdb"]
 [ext_resource type="Texture2D" uid="uid://b2qcvyj4odfqf" path="res://Assets/Sprites/Tiles/Terrain (16x16).png" id="1_e3noq"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b52aqnnjb3dg5" path="res://Assets/Sprites/fondo.jpg" id="3_rby40"]
 [ext_resource type="PackedScene" uid="uid://b0dxmgf2e3n0u" path="res://Scenes/Utils/enemy_spawner.tscn" id="5_x3jok"]
 [ext_resource type="PackedScene" uid="uid://dojhu8tiply47" path="res://Scenes/Enemies/wolf.tscn" id="6_8760s"]
+[ext_resource type="PackedScene" uid="uid://djubqal5br4gm" path="res://Scenes/Enemies/slime.tscn" id="7_d8u1e"]
+[ext_resource type="PackedScene" uid="uid://ct3y5foowogt5" path="res://Scenes/Enemies/reina.tscn" id="8_7wkxl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3hj54"]
 texture = ExtResource("1_d4mdb")
@@ -320,3 +322,9 @@ scale = Vector2(3.34375, 1.86207)
 [node name="Wolf" parent="." instance=ExtResource("6_8760s")]
 position = Vector2(381, 335)
 scale = Vector2(3.34375, 1.86207)
+
+[node name="Slime" parent="." instance=ExtResource("7_d8u1e")]
+position = Vector2(-32, 340)
+
+[node name="Reina" parent="." instance=ExtResource("8_7wkxl")]
+position = Vector2(927, 340)

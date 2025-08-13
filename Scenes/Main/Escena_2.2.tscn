@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bkn71ntln8evf"]
+[gd_scene load_steps=12 format=4 uid="uid://d2j6nc2g2ryap"]
 
 [ext_resource type="Texture2D" uid="uid://csdmdwffxs1ew" path="res://Assets/Sprites/Tiles/Purple.png" id="1_d4mdb"]
 [ext_resource type="Texture2D" uid="uid://b2qcvyj4odfqf" path="res://Assets/Sprites/Tiles/Terrain (16x16).png" id="1_e3noq"]

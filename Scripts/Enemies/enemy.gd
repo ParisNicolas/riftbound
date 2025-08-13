@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED := 80
-@export var ATTACK_RANGE := 20
+@export var ATTACK_RANGE := 15
 @export var ATTACK_COOLDOWN := 1.0
 @export var GRAVITY := 800.0
 
@@ -34,15 +34,16 @@ func _physics_process(delta):
 		var dy = target_player.global_position.y - global_position.y
 		var distance = abs(dx)
 		var height_distance = abs(dy)
-
+		
 		# Flip aunque no se mueva
 		$AnimatedSprite2D.flip_h = dx < 0
-
+		 
 		if distance <= ATTACK_RANGE:
 			if height_distance <= 10:
 				velocity.x = 0
 				if(can_attack):
 					attack()
+					print(distance)
 					attacking = true
 				$AnimatedSprite2D.play("attack")
 			else:
@@ -63,9 +64,15 @@ func take_damage(amount: int):
 		
 	current_health = clamp(current_health - amount, 0, max_health)
 	
+	modulate = Color(1, 0, 0)
+	await get_tree().create_timer(0.2).timeout
+	modulate = Color(1, 1, 1)  # blanco normal (sin tinte)
+	
 	if current_health <= 0:
 		die()
-		
+	
+	
+	
 func apply_push(push_vector: Vector2):
 	velocity += push_vector
 

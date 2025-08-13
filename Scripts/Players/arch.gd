@@ -8,9 +8,10 @@ var max_health := 100
 var current_health := 90
 var is_dead := false
 
-var attack_cooldown := 0.4
+var attack_cooldown := 0.3
 var can_attack := true
 
+var score := 0
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
@@ -68,12 +69,16 @@ func _process(delta):
 	$AttackArea/CollisionShape2D.position.x = 30 if !$AnimatedSprite2D.flip_h else -2
 
 func attack():
+	var hud = get_tree().root.get_node("Node/HUD")
+	
 	if !is_multiplayer_authority(): return
 	if !can_attack: return
 
 	can_attack = false
 	$AnimatedSprite2D.rotation = 0.6 if !$AnimatedSprite2D.flip_h else -0.6
 	
+	# Reiniciar barra a 0
+	hud.reset_attackbar(attack_cooldown)
 
 	# MOSTRAR COLISIÓN (solo durante el ataque)
 	$AttackArea/CollisionShape2D.visible = true
@@ -81,10 +86,18 @@ func attack():
 	var bodies = $AttackArea.get_overlapping_bodies()
 	for body in bodies:
 		if body.is_in_group("enemy"):
+			score += 10
+			update_score_ui()
 			body.take_damage(10)
 
 	# Esperar cooldown
 	await get_tree().create_timer(attack_cooldown).timeout
+	# Animar cooldown
+	var tiempo_pasado := 0.0
+	while tiempo_pasado < attack_cooldown:
+		await get_tree().process_frame
+		tiempo_pasado += get_process_delta_time()
+		hud.set_attackbar(tiempo_pasado)
 
 	$AnimatedSprite2D.rotation = 0 
 	can_attack = true
@@ -104,9 +117,15 @@ func update_health_ui():
 	var hud = get_tree().root.get_node("Node/HUD")  # Ajustá la ruta según tu estructura
 	if hud:
 		hud.update_health(current_health, max_health)
+		
+func update_score_ui():
+	var hud = get_tree().root.get_node("Node/HUD")  # Ajustá la ruta según tu estructura
+	if hud:
+		hud.update_score(score)
 
 func respawn():
 	print("REAPARICIONNN")
+	score = 0
 	max_health = max_health - 20
 	current_health = max_health
 	is_dead = false

@@ -1,13 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://clxa1711vjjsv"]
+[gd_scene load_steps=6 format=3 uid="uid://clxa1711vjjsv"]
 
 [ext_resource type="Script" uid="uid://b0f0wywr60hx0" path="res://Scripts/multiplayer.gd" id="1_rt0y2"]
 [ext_resource type="PackedScene" uid="uid://dmingoc24kwmn" path="res://Scenes/UI/hud.tscn" id="2_ipi6n"]
-[ext_resource type="PackedScene" uid="uid://mjwv0gqgjuh8" path="res://Scenes/Enemies/enemy.tscn" id="3_b8xr8"]
 [ext_resource type="PackedScene" uid="uid://bk2ggberd6okw" path="res://Scenes/Main/Escena_2.tscn" id="3_ipi6n"]
-[ext_resource type="PackedScene" uid="uid://djubqal5br4gm" path="res://Scenes/Enemies/slime.tscn" id="5_rrnm6"]
 [ext_resource type="FontFile" uid="uid://mtu35pl36xwk" path="res://Assets/Fonts/Click Cheese.otf" id="5_rxk6r"]
 [ext_resource type="AudioStream" uid="uid://budubyi2u2emc" path="res://Assets/Audio/Fuguee KSR.wav" id="6_au533"]
-[ext_resource type="PackedScene" uid="uid://ct3y5foowogt5" path="res://Scenes/Enemies/reina.tscn" id="6_pul5d"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_rt0y2")
@@ -15,16 +12,6 @@ script = ExtResource("1_rt0y2")
 [node name="HUD" parent="." instance=ExtResource("2_ipi6n")]
 
 [node name="Escena1" parent="." instance=ExtResource("3_ipi6n")]
-position = Vector2(288, -20)
-
-[node name="Enemy" parent="." instance=ExtResource("3_b8xr8")]
-position = Vector2(200, 239)
-
-[node name="Wolf" parent="." instance=ExtResource("5_rrnm6")]
-position = Vector2(-24, 321)
-
-[node name="Reina" parent="." instance=ExtResource("6_pul5d")]
-position = Vector2(1436, 315)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15

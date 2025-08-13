@@ -79,12 +79,11 @@ radius = 5.0
 script = ExtResource("1_ubio8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -3)
+position = Vector2(1.55358, -3.92856)
 scale = Vector2(0.469048, 0.469048)
 sprite_frames = SubResource("SpriteFrames_53ao7")
-animation = &"idle"
-frame_progress = 0.269879
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
+position = Vector2(-0.44642, 0.0714397)
 shape = SubResource("CircleShape2D_3hxf3")
